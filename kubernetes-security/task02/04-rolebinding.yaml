@@ -3,10 +3,12 @@ kind: ClusterRoleBinding
 metadata:
   name: prometheus:pod-reader
 subjects:
-  - kind: User
-    name: '*'
+  - kind: ServiceAccount 
+    name: carol
     namespace: prometheus
-    apiGroup: rbac.authorization.k8s.io
+  - kind: ServiceAccount
+    name: carol
+    namespace: default
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
